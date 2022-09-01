@@ -1,9 +1,8 @@
 package com.tosin;
 
 import java.util.Scanner;
-import java.util.HashMap;
-//import com.google.common.collect.ImmutableMap;
 import com.tosin.util.Database;
+import com.tosin.util.User;
 
 public class EmployeeManagement {
 
@@ -36,7 +35,7 @@ public class EmployeeManagement {
                         System.out.println("Enter number of employee to add");
                         int num = scanner.nextInt();
                         for (int i = 0; i < num; i++) {
-                            HashMap<String, Object> staffInformation = new HashMap<String, Object>();
+
                             scanner.nextLine();
 
                             System.out.println("Enter Staff name: ");
@@ -48,13 +47,9 @@ public class EmployeeManagement {
                             System.out.println("Enter age: ");
                             int age = scanner.nextInt();
 
-                            // immutableMap<String, Object> staffInformation = new immutableMap<String,
-                            // Object>builder()
-                            staffInformation.put("name", name);
-                            staffInformation.put("role", role);
-                            staffInformation.put("age", age);
+                            User staff = new User(name, role, age);
+                            obj.addStaff(staff);
 
-                            obj.addStaff(staffInformation);
                         }
                     } catch (Exception e) {
                         System.out.println(e);
